@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple glassmorphism music player." />
+    <title>Afterglow Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <div class="player-stack">
+        <section class="music-player" aria-label="Music player">
+        <div class="player-header">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span>Afterglow</span>
+          <span class="header-label">NOW PLAYING</span>
+        </div>
+
+        <div class="album-art-wrap">
+          <img id="album-art" class="album-art" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=85" alt="Fearless Pt. II album artwork" />
+          <span class="art-shine" aria-hidden="true"></span>
+        </div>
+
+        <div class="track-details">
+          <p class="track-kicker">FEATURED TRACK</p>
+          <h1 id="song-title">Fearless Pt. II</h1>
+          <p id="artist-name">TULE, Chris Linton</p>
+        </div>
+
+        <div class="progress-area">
+          <span id="current-time">0:00</span>
+          <input id="progress-bar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Track progress" />
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="controls" aria-label="Playback controls">
+          <button id="previous-button" class="control-button" type="button" aria-label="Previous song">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6l-8 6 8 6V6Z" /></svg>
+          </button>
+          <button id="play-button" class="play-button" type="button" aria-label="Play song">
+            <svg id="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 9 6-9 6V6Z" /></svg>
+          </button>
+          <button id="next-button" class="control-button" type="button" aria-label="Next song">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6l8 6-8 6V6Z" /></svg>
+          </button>
+        </div>
+
+        <div class="volume-control">
+          <button id="volume-button" class="utility-button" type="button" title="Volume" aria-label="Volume 100 percent">
+            <svg id="volume-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z" /><path d="M16 9.5a4 4 0 0 1 0 5" /></svg>
+          </button>
+          <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume" />
+        </div>
+
+        <div class="mode-controls" aria-label="Playback modes">
+          <button id="shuffle-button" class="mode-button" type="button" title="Shuffle" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h2.5c3.7 0 5.1 10 9 10H21M17 5l4 2-4 2M3 17h2.5c1.4 0 2.4-1.4 3.2-2.8M17 15l4 2-4 2M14.5 7.3C15.2 6 16 5 17.5 5H21" /></svg>
+            <span>Shuffle</span>
+          </button>
+          <button id="repeat-button" class="mode-button" type="button" title="Repeat" aria-pressed="false">
+            <svg id="repeat-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3l4 4-4 4" /><path d="M3 11V9a2 2 0 0 1 2-2h16M7 21l-4-4 4-4" /><path d="M21 13v2a2 2 0 0 1-2 2H3" /></svg>
+            <span id="repeat-label">Repeat off</span>
+          </button>
+        </div>
+
+        <p id="player-status" class="player-status" role="status">Add MP3 files to the audio folder to start listening.</p>
+          <audio id="audio-player" preload="metadata"></audio>
+        </section>
+
+        <section class="playlist-card" aria-labelledby="playlist-title">
+          <div class="playlist-header">
+            <div>
+              <p class="playlist-kicker">YOUR QUEUE</p>
+              <h2 id="playlist-title">Playlist</h2>
+            </div>
+            <span id="playlist-count" class="playlist-count"></span>
+          </div>
+          <div id="playlist" class="playlist" role="list"></div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
